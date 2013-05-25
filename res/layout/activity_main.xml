@@ -9,8 +9,50 @@
     tools:context=".MainActivity" >
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/QuestionTextView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="14dp" />
+
+    <EditText
+        android:id="@+id/AnswerText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/QuestionTextView"
+        android:layout_below="@+id/QuestionTextView"
+        android:layout_marginTop="17dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/AnswerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AnswerText"
+        android:layout_below="@+id/AnswerText"
+        android:layout_marginTop="15dp"
+        android:text="Check Answer" />
+
+    <TextView
+        android:id="@+id/AnswerTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AnswerButton"
+        android:layout_below="@+id/AnswerButton"
+        android:layout_marginTop="23dp" />
+
+    <Button
+        android:id="@+id/QuestionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AnswerTextView"
+        android:layout_below="@+id/AnswerTextView"
+        android:layout_marginTop="20dp"
+        android:text="Show Next Question" />
 
 </RelativeLayout>
