@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	private int currentQuestion;
+	private int score;
 	private String [] questions;
 	private String [] answers;
 	private Button answerButton;
@@ -18,15 +19,18 @@ public class MainActivity extends Activity {
 	private TextView questionView;
 	private TextView answerView;
 	private EditText answerText;
+	private TextView scoreView;
 
 	public void init() {
-		questions = new String[]{"What is the capital of Egypt?", "What class are you in right now?"};
-		answers = new String[]{"Cairo","IST380"};
+		questions = new String[]{"What is the capital of Egypt?", "What class are you in right now?", "What year is this?", "What is the color of the sea?"};
+		answers = new String[]{"Cairo","IST380","2013","Blue"};
 		currentQuestion = -1;
+		score=0;
 		answerButton = (Button)findViewById(R.id.AnswerButton);
 		questionButton = (Button)findViewById(R.id.QuestionButton);
 		questionView = (TextView)findViewById(R.id.QuestionTextView);
 		answerView = (TextView) findViewById(R.id.AnswerTextView);
+		scoreView = (TextView) findViewById(R.id.ScoreTextView);
 		answerText = (EditText) findViewById(R.id.AnswerText);
 		answerButton.setOnClickListener(new OnClickListener(){
 			@Override
@@ -50,8 +54,12 @@ public class MainActivity extends Activity {
 		public void showQuestion() {
 		currentQuestion++;
 		if(currentQuestion == questions.length)
-		currentQuestion =0;
-		questionView.setText(questions[currentQuestion]); answerView.setText("");
+		{
+			currentQuestion =0;
+			score=0;
+			scoreView.setText("Your Score is "+score);
+		}
+		questionView.setText("Question "+(currentQuestion+1)+" of "+questions.length+": "+questions[currentQuestion]); answerView.setText("");
 		answerText.setText("");
 		}
 		/*
@@ -66,9 +74,17 @@ public class MainActivity extends Activity {
 		* 3: display the appropriate message.
 		*/
 		public void checkAnswer() {
-		String answer = answerText.getText().toString(); if(isCorrect(answer))
-		answerView.setText("You're right!"); else
-		answerView.setText("Sorry, the correct answer is "+answers[currentQuestion]);
+		String answer = answerText.getText().toString();
+		if(isCorrect(answer))
+			{
+			answerView.setText("You're right!");	
+			score++;
+			scoreView.setText("Your Score is "+score);
+			}
+		else
+			{
+			answerView.setText("Sorry, the correct answer is "+answers[currentQuestion]);
+			}
 		}
 		
 	@Override

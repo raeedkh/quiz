@@ -55,4 +55,12 @@
         android:layout_marginTop="20dp"
         android:text="Show Next Question" />
 
+    <TextView
+        android:id="@+id/ScoreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/QuestionButton"
+        android:layout_below="@+id/QuestionButton"
+        android:layout_marginTop="41dp" />
+    
 </RelativeLayout>
