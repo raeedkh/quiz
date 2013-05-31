@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 		currentQuestion++;
 		if(currentQuestion == questions.length)
 		{
-			currentQuestion =0;
+			currentQuestion =0; 
 			score=0;
 			scoreView.setText("Your Score is "+score);
 		}
