@@ -56,9 +56,16 @@ public class MainActivity extends Activity {
 		if(currentQuestion == questions.length)
 		{
 			currentQuestion =0; 
+			questionButton.setText("Show Next Question");
 			score=0;
 			scoreView.setText("Your Score is "+score);
 		}
+		
+		if (currentQuestion == questions.length-1)
+		{
+			questionButton.setText("Restart Quiz");
+		}
+			
 		questionView.setText("Question "+(currentQuestion+1)+" of "+questions.length+": "+questions[currentQuestion]); answerView.setText("");
 		answerText.setText("");
 		}
